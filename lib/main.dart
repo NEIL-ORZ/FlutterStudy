@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'model/Post.dart';
+import 'demo/listview_demo.dart';
+import 'demo/drawer_demo.dart';
+import 'demo/bottom_navigation_bar_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +17,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //设置调试标识
       home: Home(),
-      theme: ThemeData(primarySwatch: Colors.yellow),
+      theme: ThemeData(
+          //主题色
+          primarySwatch: Colors.yellow,
+          //高亮色
+          highlightColor: Colors.white38,
+          //水波色
+          splashColor: Colors.white70),
     );
   }
 }
@@ -24,42 +33,56 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      //tab导航架构
+      length: 3,
+      child: Scaffold(
+        //基本结构
         backgroundColor: Colors.grey[100],
-        appBar: AppBar(title: Text("flutterdemo")),
-        body: ListView.builder(
-            itemBuilder: _itemBuilder, itemCount: posts.length)
-    );
-  }
-
-  Widget _itemBuilder(BuildContext context, int index) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Image.network(posts[index].imgUrl),
-          SizedBox(height: 8.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-          SizedBox(height: 16.0)
-        ],
+        appBar: AppBar(
+          //左导航，自定义不能控制Drawer
+          // leading: IconButton(
+          //   icon: Icon(Icons.menu),
+          //   tooltip: 'Navigation',
+          //   onPressed: () => debugPrint("leading onPressed"),
+          // ),
+          //右操作
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              tooltip: 'Search',
+              onPressed: () => debugPrint("search onPressed"),
+            ),
+            IconButton(
+              icon: Icon(Icons.more_horiz),
+              tooltip: 'More',
+              onPressed: () => debugPrint("more onPressed"),
+            ),
+          ],
+          title: Text("flutterstudy"),
+          //tab导航
+          bottom: TabBar(
+              unselectedLabelColor: Colors.black38,
+              indicatorColor: Colors.black54,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorWeight: 1.0,
+              tabs: [
+                Tab(icon: Icon(Icons.local_activity)),
+                Tab(icon: Icon(Icons.change_history)),
+                Tab(icon: Icon(Icons.linked_camera)),
+              ]),
+        ),
+        //tab主视图
+        body: TabBarView(children: [
+          Tab(icon: Icon(Icons.local_activity)),
+          Tab(icon: Icon(Icons.change_history)),
+          Tab(icon: Icon(Icons.linked_camera)),
+        ]),
+        //左抽屉
+        drawer: DrawerDemo(),
+        //底部导航
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
-    );
-  }
-}
-
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text("flutterdemo"),
     );
   }
 }
