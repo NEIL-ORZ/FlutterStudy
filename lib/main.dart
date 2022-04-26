@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'demo/listview_demo.dart';
 import 'demo/drawer_demo.dart';
 import 'demo/bottom_navigation_bar_demo.dart';
+import 'demo/basic_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,7 +76,7 @@ class Home extends StatelessWidget {
         //tab主视图
         body: TabBarView(children: [
           ListViewDemo(),
-          Tab(icon: Icon(Icons.change_history)),
+          BasicDemo(),
           Tab(icon: Icon(Icons.linked_camera)),
         ]),
         //左抽屉
