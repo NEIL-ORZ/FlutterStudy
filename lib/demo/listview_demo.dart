@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/post.dart';
 
-class ListViewWidgt extends StatelessWidget {
+class ListViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(itemBuilder: _itemBuilder, itemCount: posts.length);

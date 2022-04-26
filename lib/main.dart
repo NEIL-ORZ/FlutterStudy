@@ -74,7 +74,7 @@ class Home extends StatelessWidget {
         ),
         //tab主视图
         body: TabBarView(children: [
-          Tab(icon: Icon(Icons.local_activity)),
+          ListViewDemo(),
           Tab(icon: Icon(Icons.change_history)),
           Tab(icon: Icon(Icons.linked_camera)),
         ]),
