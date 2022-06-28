@@ -8,6 +8,7 @@ import 'demo/drawer_demo.dart';
 import 'demo/bottom_navigation_bar_demo.dart';
 import 'demo/basic_demo.dart';
 import 'demo/layout_demo.dart';
+import 'demo/view_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       //tab导航架构
-      length: 3,
+      length: 4,
       child: Scaffold(
         //基本结构
         backgroundColor: Colors.grey[100],
@@ -63,7 +64,7 @@ class Home extends StatelessWidget {
           ],
           title: Text("flutterstudy"),
           //tab导航
-          bottom: TabBar(
+          bottom: const TabBar(
               unselectedLabelColor: Colors.black38,
               indicatorColor: Colors.black54,
               indicatorSize: TabBarIndicatorSize.label,
@@ -72,6 +73,7 @@ class Home extends StatelessWidget {
                 Tab(icon: Icon(Icons.local_activity)),
                 Tab(icon: Icon(Icons.change_history)),
                 Tab(icon: Icon(Icons.linked_camera)),
+                Tab(icon: Icon(Icons.phone)),
               ]),
         ),
         //tab主视图
@@ -79,6 +81,7 @@ class Home extends StatelessWidget {
           ListViewDemo(),
           BasicDemo(),
           LayoutDemo(),
+          ViewDemo()
         ]),
         //左抽屉
         drawer: DrawerDemo(),
