@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/**
+ * 基础部件
+ */
 class BasicDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/**
+ * 底部导航
+ */
 class BottomNavigationBarDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

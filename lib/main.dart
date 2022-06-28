@@ -7,6 +7,7 @@ import 'demo/listview_demo.dart';
 import 'demo/drawer_demo.dart';
 import 'demo/bottom_navigation_bar_demo.dart';
 import 'demo/basic_demo.dart';
+import 'demo/layout_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,7 +78,7 @@ class Home extends StatelessWidget {
         body: TabBarView(children: [
           ListViewDemo(),
           BasicDemo(),
-          Tab(icon: Icon(Icons.linked_camera)),
+          LayoutDemo(),
         ]),
         //左抽屉
         drawer: DrawerDemo(),

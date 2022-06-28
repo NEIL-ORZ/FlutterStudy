@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/**
+ * 菜单
+ */
 class DrawerDemo extends StatelessWidget {
 
   @override
