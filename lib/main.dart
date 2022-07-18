@@ -10,6 +10,7 @@ import 'demo/basic_demo.dart';
 import 'demo/layout_demo.dart';
 import 'demo/view_demo.dart';
 import 'demo/sliver_demo.dart';
+import 'demo/navigator_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //设置调试标识
       home: Home(),
+      initialRoute: "/", //初始路由
+      routes: {
+        "/about": (context) => const AboutPage(
+              title: "About",
+            )
+      },
       theme: ThemeData(
           //主题色
           primarySwatch: Colors.yellow,
